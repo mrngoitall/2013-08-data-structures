@@ -2,7 +2,7 @@ var makeStack = function(){
   // Use an object with numeric keys to store values
   var storage = {};
 
-  var size; // Hint: set an initial value here
+  var size = 0;
 
   // Implement the methods below
   var stack = {};
@@ -14,6 +14,7 @@ var makeStack = function(){
   };
 
   stack.size = function(){
+    return size;
   };
 
   return stack;
