@@ -15,12 +15,12 @@ var makeQueue = function(){
 
   queue.dequeue = function(){
     var result = storage[first];
-    first++;
+    last > first && first++;
     return result;
   };
 
   queue.size = function(){
-    return size;
+    return last - first;
   };
 
   return queue;
