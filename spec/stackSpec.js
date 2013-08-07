@@ -39,17 +39,12 @@ describe("stack", function() {
     expect(stack.size()).equal(3);
   });
 
-  it('should report its size correctly', function() {
-    var a = 'a', b = 'b', c = 'c';
-
-    stack.push(a);
-    stack.push(b);
-    stack.push(c);
-    expect(stack.size()).equal(3);
-
+  it('should report size of 2 after popping 1 item from stack', function() {
     stack.pop();
     expect(stack.size()).equal(2);
+  });
 
+  it('should report size of 0 after popping remaining items from stack', function() {
     stack.pop();
     stack.pop();
     stack.pop();
