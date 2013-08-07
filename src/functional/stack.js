@@ -13,6 +13,9 @@ var makeStack = function(){
   };
 
   stack.pop = function(){
+    var result = storage[size - 1];
+    size && size--;
+    return result;
   };
 
   stack.size = function(){
