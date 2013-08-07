@@ -85,6 +85,14 @@ describe("stack", function() {
     expect(stack.pop()).equal(a);
   });
 
+  it('should return undefined when the stack has been emptied', function() {
+    var a = 'a', b = 'b', c = 'c', d = 'd';
+
+    stack.push(a);
+    stack.pop();
+    expect(stack.pop()).equal(undefined);
+  });
+
   // instantiation-style-specific tests
   if (skipper.variant != 'functional'  ){
     it('should have its own storage property', function(){
