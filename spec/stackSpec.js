@@ -60,7 +60,6 @@ describe("stack", function() {
     stack.pop();
     stack.pop();
     stack.pop();
-    stack.pop();
     expect(stack.size()).equal(0);
   });
 
