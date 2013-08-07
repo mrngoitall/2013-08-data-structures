@@ -97,13 +97,13 @@ describe("stack", function() {
     var stacks = [];
     for (var i = 0; i < 50000; i++) {
       stacks[i] = stack;
+      refreshStack();
       stacks[i].push(Math.random());
       stacks[i].push(Math.random());
       stacks[i].push(Math.random());
       stacks[i].push(Math.random());
       stacks[i].pop();
       stacks[i].size();
-      if (i===48000) debugger;
     }
   });
 
