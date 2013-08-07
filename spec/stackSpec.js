@@ -77,6 +77,14 @@ describe("stack", function() {
     expect(stack.pop()).equal(a);
   });
 
+  it('should not skip any items if pop is called on an empty stack', function() {
+    var a = 'a', b = 'b', c = 'c', d = 'd';
+
+    stack.pop();
+    stack.push(a);
+    expect(stack.pop()).equal(a);
+  });
+
   // instantiation-style-specific tests
   if (skipper.variant != 'functional'  ){
     it('should have its own storage property', function(){
