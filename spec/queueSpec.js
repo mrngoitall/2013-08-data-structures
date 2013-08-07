@@ -84,6 +84,14 @@ describe("queue", function() {
     expect(queue.dequeue()).equal(a);
   });
 
+  it('should return undefined when the queue has been emptied', function() {
+    var a = 'a', b = 'b', c = 'c', d = 'd';
+
+    queue.enqueue(a);
+    queue.dequeue();
+    expect(queue.dequeue()).equal(undefined);
+  });
+
   // instantiation-style-specific tests
   if (skipper.variant != 'functional'  ){
     it('should have its own storage property', function(){
