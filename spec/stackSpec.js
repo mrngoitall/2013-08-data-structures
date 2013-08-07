@@ -93,6 +93,20 @@ describe("stack", function() {
     expect(stack.pop()).equal(undefined);
   });
 
+  it('should perform well with many instances', function() {
+    var stacks = [];
+    for (var i = 0; i < 50000; i++) {
+      stacks[i] = stack;
+      stacks[i].push(Math.random());
+      stacks[i].push(Math.random());
+      stacks[i].push(Math.random());
+      stacks[i].push(Math.random());
+      stacks[i].pop();
+      stacks[i].size();
+      if (i===48000) debugger;
+    }
+  });
+
   // instantiation-style-specific tests
   if (skipper.variant != 'functional'  ){
     it('should have its own storage property', function(){
