@@ -76,6 +76,14 @@ describe("queue", function() {
     expect(queue.dequeue()).equal(d);
   });
 
+  it('should not skip any items if dequeue is called on an empty queue', function() {
+    var a = 'a', b = 'b', c = 'c', d = 'd';
+
+    queue.dequeue();
+    queue.enqueue(a);
+    expect(queue.dequeue()).equal(a);
+  });
+
   // instantiation-style-specific tests
   if (skipper.variant != 'functional'  ){
     it('should have its own storage property', function(){
