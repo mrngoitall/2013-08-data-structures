@@ -25,20 +25,40 @@ describe("queue", function() {
     expect(function(){queue.dequeue()}).not.throws();
   });
 
-  it('should report its size correctly', function() {
+  it('should report size of 0 for an empty queue', function() {
+    expect(queue.size()).equal(0);
+  });
+
+  it('should report size of 3 after enqueuing 3 items into queue', function() {
     var a = 'a', b = 'b', c = 'c';
 
     queue.enqueue(a);
     queue.enqueue(b);
     queue.enqueue(c);
     expect(queue.size()).equal(3);
+  });
+
+  it('should report size of 2 after dequeuing 1 item from queue', function() {
+    var a = 'a', b = 'b', c = 'c';
+
+    queue.enqueue(a);
+    queue.enqueue(b);
+    queue.enqueue(c);
 
     queue.dequeue();
     expect(queue.size()).equal(2);
+  });
+
+  it('should report size of 0 after dequeuing remaining items from queue', function() {
+    var a = 'a', b = 'b', c = 'c';
+
+    queue.enqueue(a);
+    queue.enqueue(b);
+    queue.enqueue(c);
 
     queue.dequeue();
     queue.dequeue();
-    queue.dequeue(); // make sure we don't get to -1
+    queue.dequeue();
     expect(queue.size()).equal(0);
   });
 
@@ -65,7 +85,7 @@ describe("queue", function() {
     it('should share methods with other instances', function(){
       var oldQueue = queue;
       refreshQueue();
-      expect(oldQueue.push).to.be.equal(queue.push);
+      expect(oldQueue.enqueue).to.be.equal(queue.enqueue);
     });
     
     // TODO: test for prototypal vs pseudoclassical
