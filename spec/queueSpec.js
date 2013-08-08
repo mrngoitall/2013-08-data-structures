@@ -92,6 +92,20 @@ describe("queue", function() {
     expect(queue.dequeue()).equal(undefined);
   });
 
+  it('should perform well with many instances', function() {
+    var queues = [];
+    for (var i = 0; i < 500000; i++) {
+      queues[i] = queue;
+      refreshQueue();
+      queues[i].enqueue(Math.random());
+      queues[i].enqueue(Math.random());
+      queues[i].enqueue(Math.random());
+      queues[i].enqueue(Math.random());
+      queues[i].dequeue();
+      queues[i].size();
+    }
+  });
+
   // instantiation-style-specific tests
   if (skipper.variant != 'functional'  ){
     it('should have its own storage property', function(){
