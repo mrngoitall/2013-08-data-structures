@@ -95,7 +95,7 @@ describe("stack", function() {
 
   it('should perform well with many instances', function() {
     var stacks = [];
-    for (var i = 0; i < 50000; i++) {
+    for (var i = 0; i < 500000; i++) {
       stacks[i] = stack;
       refreshStack();
       stacks[i].push(Math.random());
